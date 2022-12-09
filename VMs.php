@@ -81,7 +81,7 @@ if(!isset($_SESSION['email'])){
 			<button onclick="addVMs()">Add VM</button>
 		</div>
 		<div id="bottom">
-			<img src="images/employee_image.jfif">
+			<img src="images/employee_image.jpg">
 			<div id="welcome">
 				<h4>Welcome,</h4>
 				<h3><?= $_SESSION['azureemail'];?></h3>
@@ -92,8 +92,7 @@ if(!isset($_SESSION['email'])){
 	<div class="data">
 		
 		<div class="container">
-			<div class="top">
-
+			<div class="top" id="print">
 				<div id="infos">
 					<script type="text/javascript">
 						let tableOriginal = document.createElement('table')
@@ -531,5 +530,7 @@ if(!isset($_SESSION['email'])){
 	</div>
 	<script type="text/javascript" src="js/fillVMs.js"></script>
 	<script type="text/javascript" src="js/functions.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 </html>
