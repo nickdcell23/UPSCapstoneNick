@@ -1,15 +1,9 @@
 <?php
-/* mysql.php MySQL Database Class
- *
- * Katy Nicholson, last updated 08/08/2021
- *
- * https://github.com/CoasterKaty
- * https://katytech.blog/
- * https://twitter.com/coaster_katy
- *
- */
 
 require_once dirname(__FILE__) . '/config.inc';
+
+
+// I used my own database stuff for this. Just found it easier down the line
 
 class modDB {
 

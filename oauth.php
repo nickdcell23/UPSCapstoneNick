@@ -6,11 +6,12 @@ require_once './includes/oauth.php';
 session_start();
 $modDB = new modDB();
 $oAuth = new modOAuth();
+
 if ($_GET['error']) {
 	echo $oAuth->errorMessage($_GET['error_description']);
 	exit;
 }
-//retrieve session data from database
+// retrieve session data from database
 $sessionData = $modDB->QuerySingle('SELECT * FROM tblAuthSessions WHERE txtSessionKey=\'' . $modDB->Escape($_SESSION['sessionkey']) . '\'');
 
 if ($sessionData) {
@@ -33,9 +34,20 @@ if ($sessionData) {
 	$idToken = base64_decode(explode('.', $reply->id_token)[1]);
 	$modDB->Update('tblAuthSessions', array('txtToken' => $reply->access_token, 'txtRefreshToken' => $reply->refresh_token, 'txtIDToken' => $idToken, 'txtRedir' => '', 'dtExpires' => date('Y-m-d H:i:s', strtotime('+' . $reply->expires_in . ' seconds'))), array('intAuthID' => $sessionData['intAuthID']));
 	// Redirect user to the DASHBOARD (but wait, the login is an issue!)
-	header('Location: http://localhost/UPSCapstoneFall2022-main/dashboard.php');
-	$_SESSION['auth'] = true;
+	header('Location: http://localhost/UPSCapstoneFall2022-main/login.php');
+	$_SESSION['loggedIn'] = true;
+	$_SESSION['azureemail']; // keep the email saved for display later
 } else {
 	header('Location: /');
 }
+
+// get the username to display on the app
+include './includes/graph.php';
+$Graph = new modGraph();
+//Display the username, logout link and a list of attributes returned by Azure AD.
+$photo = $Graph->getPhoto();
+$profile = $Graph->getProfile();
+$azureemail = $profile->displayName;
+$_SESSION['azureemail'] = $azureemail;
+
 ?>

@@ -22,6 +22,7 @@ if(isset($_POST['login'])){
 		if(password_verify($password, $row['password'])){
 			session_start();
 			$_SESSION['email'] = $email;
+			$_SESSION['azureemail'];
 			header("Location: ../dashboard.php");
 			exit();
 		}

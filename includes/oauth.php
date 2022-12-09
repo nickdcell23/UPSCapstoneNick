@@ -1,13 +1,7 @@
 <?php
-/* oauth.php Azure AD oAuth class
- *
- * Katy Nicholson, last updated 17/11/2021
- *
- * https://github.com/CoasterKaty
- * https://katytech.blog/
- * https://twitter.com/coaster_katy
- *
- */
+
+// oAuth class for Azure AD authentication
+// see oAuth and Azure documentation for details
 
 class modOAuth {
 
@@ -76,7 +70,7 @@ class modOAuth {
 
 
         function uuid() {
-                //uuid function is not my code, but unsure who the original author is. KN
+                // Once again, not mine. Can't find the original author though.
                 //uuid version 4
                 return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
                     // 32 bits for "time_low"
