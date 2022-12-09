@@ -36,7 +36,7 @@ if ($sessionData) {
 	// Redirect user to the DASHBOARD (but wait, the login is an issue!)
 	header('Location: http://localhost/UPSCapstoneFall2022-main/login.php');
 	$_SESSION['loggedIn'] = true;
-	$_SESSION['azureemail'];
+	$_SESSION['azureemail']; // keep the email saved for display later
 } else {
 	header('Location: /');
 }

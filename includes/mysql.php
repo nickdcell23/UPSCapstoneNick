@@ -2,6 +2,9 @@
 
 require_once dirname(__FILE__) . '/config.inc';
 
+
+// I used my own database stuff for this. Just found it easier down the line
+
 class modDB {
 
     var $myDB;

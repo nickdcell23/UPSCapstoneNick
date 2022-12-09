@@ -6,9 +6,9 @@ define('_MYSQL_USER', 'root');
 define('_MYSQL_DB', 'ups');
 define('_MYSQL_PASS', '');
 
-define('_OAUTH_TENANTID', '9c186597-41ca-4df0-9f9a-efca0fd342d7');
-define('_OAUTH_CLIENTID', '7581f467-b21b-4c6a-9760-c39248102784');
-define('_OAUTH_LOGOUT', 'http://localhost/UPSCapstoneFall2022-main/login.php');
+define('_OAUTH_TENANTID', '9c186597-41ca-4df0-9f9a-efca0fd342d7'); // tenant ID for Azure
+define('_OAUTH_CLIENTID', '7581f467-b21b-4c6a-9760-c39248102784'); // client ID for Azure
+define('_OAUTH_LOGOUT', 'http://localhost/UPSCapstoneFall2022-main/login.php'); // sends you back to login screen on signout (Azure's sign out was not working)
 define('_OAUTH_SCOPE', 'openid%20offline_access%20profile%20user.read');
 
 // Either we use a secret key or a certificate
@@ -16,7 +16,8 @@ define('_OAUTH_SCOPE', 'openid%20offline_access%20profile%20user.read');
 
 define('_OAUTH_METHOD', 'secret');
 
-define('_OAUTH_SECRET', 'vDe8Q~AoBhI5kezdx143UgWU3jFUwkPt~_Zkkami');
+define('_OAUTH_SECRET', 'vDe8Q~AoBhI5kezdx143UgWU3jFUwkPt~_Zkkami'); // valid for 3 months, I think. change when necessary
+
 // not using these, so ignore them. They're here if you wish to change your mind though
 define('_OAUTH_AUTH_CERTFILE', '/path/to/certificate.crt');
 define('_OAUTH_AUTH_KEYFILE', '/path/to/privatekey.pem');

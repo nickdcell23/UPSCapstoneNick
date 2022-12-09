@@ -2,7 +2,7 @@
 
 // get our authentication from Azure AD. We skip the login screen for now
 // if the user logs out, they get redirected here, and have to use the DB login
-// for some reason, OAuth refuses to log me out correctly. I've tried everything to fix it
+// for some reason, OAuth refuses to log me out correctly on Azure's side
 
 session_start();
 include './includes/auth.php';

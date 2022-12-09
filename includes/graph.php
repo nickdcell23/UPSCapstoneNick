@@ -1,6 +1,8 @@
 <?php
 require_once dirname(__FILE__) . '/auth.php';
 
+// Code gets the user's profile. This way, we know who signed into Azure inside the app itself
+
 class modGraph {
         var $modAuth;
         function __construct() {
@@ -11,7 +13,6 @@ class modGraph {
                 return $profile;
         }
         function getPhoto() {
-                //Photo is a bit different, we need to request the image data which will include content type, size etc, then request the image
                 $photoType = json_decode($this->sendGetRequest('https://graph.microsoft.com/v1.0/me/photo/'));
                 $photo = $this->sendGetRequest('https://graph.microsoft.com/v1.0/me/photo/%24value');
                 if (isset($photoType->{'@odata.mediaContentType'})) {
