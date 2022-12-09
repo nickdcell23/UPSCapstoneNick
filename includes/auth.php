@@ -1,14 +1,4 @@
 <?php
-/* auth.php Azure AD oAuth Class
- *
- * Katy Nicholson, last updated 17/11/2021
- *
- * https://github.com/CoasterKaty
- * https://katytech.blog/
- * https://twitter.com/coaster_katy
- *
- */
-
 require_once dirname(__FILE__) . '/mysql.php';
 require_once dirname(__FILE__) . '/oauth.php';
 
@@ -30,7 +20,7 @@ class modAuth {
 	if (session_status() == PHP_SESSION_NONE) session_start();
         $url = _URL . $_SERVER['REQUEST_URI'];
 
-        // check session key against database. If it's expired or doesnt exist then forward to Azure AD
+        // check is the user has been logged in already. if they haven't, send them to azure
         if (isset($_SESSION['sessionkey'])) {
             // see if it's still valid. Expiry date doesn't mean that we can't just use the refresh token, so don't test this here
             $res = $this->modDB->QuerySingle('SELECT * FROM tblAuthSessions WHERE txtSessionKey = \'' . $this->modDB->Escape($_SESSION['sessionkey']) . '\'');
@@ -43,14 +33,7 @@ class modAuth {
                 header('Location: ' . $_SERVER['REQUEST_URI']);
                 exit;
             }
-            if ($_GET['action'] == 'logout') {
-                // Logout action selected, clear from database and browser cookie, redirect to logout URL
-                $this->modDB->Delete('tblAuthSessions', array('intAuthID' => $res['intAuthID']));
-                unset($_SESSION['sessionkey']);
-                session_destroy();
-                header('Location: ' . _OAUTH_LOGOUT);
-                exit;
-            }
+            
             if (strtotime($res['dtExpires']) < strtotime('+10 minutes')) {
                 //attempt token refresh
                 if ($res['txtRefreshToken']) {
@@ -114,7 +97,7 @@ class modAuth {
     }
 
     function uuid() {
-        //uuid function is not my code, but unsure who the original author is. KN
+        // This isn't mine, but I couldn't find credits to whoever made it
         //uuid version 4
         return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
             // 32 bits for "time_low"

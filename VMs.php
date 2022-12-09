@@ -84,9 +84,9 @@ if(!isset($_SESSION['email'])){
 			<img src="images/employee_image.jfif">
 			<div id="welcome">
 				<h4>Welcome,</h4>
-				<h3><?= $_SESSION['email'];?></h3>
+				<h3><?= $_SESSION['azureemail'];?></h3>
 			</div>
-			<a href="includes/signOut_inc.php" >Log Out</a>
+			<a href="includes/signOut_inc.php">Log Out</a>
 		</div>
 	</div>
 	<div class="data">

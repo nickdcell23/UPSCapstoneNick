@@ -1,17 +1,4 @@
 <?php
-
-/* graph.php Graph API class
- *
- * Katy Nicholson, last updated 01/09/2021
- *
- * https://github.com/CoasterKaty
- * https://katytech.blog/
- * https://twitter.com/coaster_katy
- *
- * Sample class to retrieve data through Graph API once logged in
- */
-
-
 require_once dirname(__FILE__) . '/auth.php';
 
 class modGraph {

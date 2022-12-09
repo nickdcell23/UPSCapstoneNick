@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['auth']) && !isset($_SESSION['email'])) {
+if(!isset($_SESSION['email'])) {
 	header('Location: login.php');
 	exit();
 }
@@ -41,7 +41,7 @@ if(!isset($_SESSION['auth']) && !isset($_SESSION['email'])) {
 			<button onclick="addVMstoAll()">Add VMs to All Clusters</button>
 		</div>
 		<div class="resourcesMax">
-			<h2>Recources max</h2>
+			<h2>Resources max</h2>
 			<div>
 				<label>CPU %:</label>
 				<input type="number" name="cpuMax" id="cpuMax" placeholder="100" required>
@@ -61,7 +61,7 @@ if(!isset($_SESSION['auth']) && !isset($_SESSION['email'])) {
 				<h4>Welcome,</h4>
 				<h3><?= $_SESSION['azureemail'];?></h3>
 			</div>
-			<a href="includes/signOut_inc.php" >Log Out</a>
+			<a href="includes/signOut_inc.php">Log Out</a>
 		</div>
 	</div>
 	<div class="data">
