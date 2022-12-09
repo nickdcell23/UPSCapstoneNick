@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['auth']) && !isset($_SESSION['email'])) {
+if(!isset($_SESSION['email'])){
 	header('Location: login.php');
 	exit();
 }
@@ -56,10 +56,10 @@ if(!isset($_SESSION['auth']) && !isset($_SESSION['email'])) {
 			</div>
 		</div>
 		<div id="bottom">
-			<img src="images/employee_image.jfif">
+			<img src="images/employee_image.jpg">
 			<div id="welcome">
 				<h4>Welcome,</h4>
-				<h3><?= $_SESSION['azureemail'];?></h3>
+				<h3><?= $_SESSION['email'];?></h3>
 			</div>
 			<a href="includes/signOut_inc.php" >Log Out</a>
 		</div>

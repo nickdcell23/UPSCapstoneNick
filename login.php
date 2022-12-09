@@ -1,15 +1,3 @@
-<?php 
-session_start();
-include './includes/auth.php';
-$Auth = new modAuth();
-include './includes/graph.php';
-$Graph = new modGraph();
-//Display the username, logout link and a list of attributes returned by Azure AD.
-$photo = $Graph->getPhoto();
-$profile = $Graph->getProfile();
-$azureemail = $profile->displayName;
-$_SESSION['azureemail'] = $azureemail;
-?>
 <!DOCTYPE html> 
 <html>
 <head>
